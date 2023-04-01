@@ -8,7 +8,7 @@ nombre varchar(25) not null,
 apellido1 varchar(25) not null,
 apellido2 varchar(25), 
 tlf varchar(9) not null UNIQUE,
-REFERENCES Clientes(id_cliente) on DELETE set NULL UPDATE CASCADE);
+CONSTRAINT id_FK FOREIGN KEY (id_cliente) REFERENCES Clientes on DELETE set NULL ON UPDATE CASCADE);
 
 create table vendedores (
 id_vendedor int auto_increment primary key,
@@ -20,6 +20,7 @@ REFERENCES vendedores(id_vendedor) on DELETE set NULL UPDATE CASCADE);
 
 create table Productos (
 id_producto int auto_increment primary KEY,
+nombre_producto varchar(50) not null,
 fabricante varchar(30) not null, 
 tlf_servicio int(9) not null,
 email_servicio VARCHAR(50),
